@@ -17,9 +17,8 @@ class App extends Component {
     cartList: [],
   }
   
-
   removeAllCartItems = () => {
-  this.setState({cartList: []})
+    this.setState({cartList: []})
   }
 
   incrementCartItemQuantity = id => {
@@ -29,7 +28,7 @@ class App extends Component {
           const updatedQuantity = eachCartItem.quantity + 1
           return {...eachCartItem, quantity: updatedQuantity}
         }
-      return eachCartItem
+        return eachCartItem
       }),
     }))  
   } 
@@ -48,17 +47,18 @@ class App extends Component {
         }),
       }))
     } else {
-    this.removeCartItem(id)
+      this.removeCartItem(id)
+    }  
   }
 
   removeCartItem = id => {
     const {cartList} = this.state
     const updatedCartList = cartList.filter(
       eachCartItem => eachCartItem.id !== id,
-  ) 
+    ) 
 
-  this.setState({cartList: updatedCartList})  
-}
+    this.setState({cartList: updatedCartList})  
+  }
 
   addCartItem = product => {
     const {cartList} = this.state
@@ -115,5 +115,6 @@ class App extends Component {
       </CartContext.Provider>
     )
   }
+}  
 
 export default App
